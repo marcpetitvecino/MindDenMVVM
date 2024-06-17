@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/home_status"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:constraint_referenced_ids="men_wear, men_wear_label, women_wear, women_wear_label, jewelry, jewelry_label"
+            android:visibility="visible"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/list_status"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:constraint_referenced_ids="close_btn, products"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+        <TextView
+            android:id="@+id/home_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INICIO"
+            android:textSize="36sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/men_wear"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_men_wear"
+            android:scaleType="fitXY"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_header" />
+
+        <TextView
+            android:id="@+id/men_wear_label"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Moda hombre"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="?colorAccent"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/men_wear"
+            app:layout_constraintStart_toStartOf="@id/men_wear"
+            app:layout_constraintEnd_toEndOf="@id/men_wear"
+            />
+
+        <ImageView
+            android:id="@+id/women_wear"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_woman_wear"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/men_wear_label" />
+
+        <TextView
+            android:id="@+id/women_wear_label"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Moda mujer"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="?colorAccent"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/women_wear"
+            app:layout_constraintStart_toStartOf="@id/women_wear"
+            app:layout_constraintEnd_toEndOf="@id/women_wear"
+            />
+
+        <ImageView
+            android:id="@+id/jewelry"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_jewelry"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/women_wear_label" />
+
+        <TextView
+            android:id="@+id/jewelry_label"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="?colorAccent"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Joyeria"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/jewelry"
+            app:layout_constraintStart_toStartOf="@id/jewelry"
+            app:layout_constraintTop_toBottomOf="@id/jewelry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_product"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:indeterminateTint="?colorPrimary"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
